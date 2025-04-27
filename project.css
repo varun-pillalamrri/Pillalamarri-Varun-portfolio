@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: #e7e7e7;
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow: hidden;
+
+}
+
+canvas#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.image-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.layer-blur {
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px white;
+    rotate: -30deg;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    /* or higher */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    position: relative;
+    z-index: 10000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 300;
+    z-index: 2;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    z-index: 999;
+}
+
+nav a:hover {
+    color: #a7a7a7;
+}
+
+.btn-connect {
+    background-color: #a7a7a7;
+    color: black;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.btn-connect:hover {
+    background-color: white;
+}
+
+.drone-3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 110vh;
+   
+}
+
+
+.floating-projects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999; /* 🔧 Lowered from 9999 to sit below header */
+}
+
+
+.floating-box {
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #999;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+    transition: transform 0.3s ease;
+}
+
+.floating-box:hover {
+    transform: scale(1.1);
+    z-index: 10001;
+    cursor: pointer;
+}
+
+/* Custom animations for each box */
+.box1 {
+    top: 10%;
+    left: 10%;
+    animation: moveBox1 18s infinite alternate ease-in-out;
+}
+
+.box2 {
+    top: 50%;
+    left: 40%;
+    animation: moveBox2 22s infinite alternate ease-in-out;
+}
+
+.box3 {
+    top: 30%;
+    left: 70%;
+    animation: moveBox3 26s infinite alternate ease-in-out;
+}
+.box4 {
+    top: 60%;
+    left: 15%;
+    animation: moveBox4 20s infinite alternate ease-in-out;
+}
+
+.box5 {
+    top: 20%;
+    left: 85%;
+    animation: moveBox5 24s infinite alternate ease-in-out;
+}
+.floating-box img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.text-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40%;
+}
+
+.text-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-content p {
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+/* Keyframes for different floating animations */
+@keyframes moveBox1 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(100px, 150px); }
+    100% { transform: translate(-200px, 80px); }
+}
+
+@keyframes moveBox2 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(-100px, -200px); }
+    100% { transform: translate(150px, 100px); }
+}
+
+@keyframes moveBox3 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(200px, -150px); }
+    100% { transform: translate(-150px, 200px); }
+}
+
+@keyframes moveBox4 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(180px, -100px); }
+    100% { transform: translate(-120px, 80px); }
+}
+
+@keyframes moveBox5 {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(-160px, 140px); }
+    100% { transform: translate(200px, -90px); }
+}
+/* TABLET RESPONSIVE */
+@media (max-width: 1300px){
+    header{
+        padding: 5rem 1rem;
+    }
+    .about-text h2{
+        padding: 5rem 1rem;
+        text-align: center;
+    }
+    .about-image{
+        padding: 5rem 1rem;
+    }
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px){
+    header{
+        padding: 1rem 0.1rem;
+    } 
+
+    nav{
+        display: none;
+    }
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    .btn-connect{
+        margin-top: 0.6rem 1.5rem;
+    }
+
+    .content{
+        margin-top: 25rem
+    }   
+
+    .about-text h2{
+        padding: 5rem 1rem;
+        font-size: 45px;
+    }
+    .about-section{
+        padding: 5rem 1rem;
+    }
+    .about-image{
+      display: none;
+        
+    }
+}
